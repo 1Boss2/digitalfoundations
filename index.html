@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DigitalFoundations | Evolve Your Digital Presence</title>
+  <title>DigitalFoundations | Web3 Agency</title>
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #212121;
       --accent: #FF6A00;
       --bg: #FFFFFF;
-      --text: #333333;
       --light: #F7F7F7;
+      --text: #333333;
+      --radius: 8px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Roboto', sans-serif; color: var(--text); background: var(--bg); }
@@ -20,112 +21,144 @@
     nav .logo { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: var(--primary); }
     nav ul { list-style: none; display: flex; gap: 30px; }
     nav ul li a { text-decoration: none; color: var(--text); font-weight: 500; }
-    /* Hero */
-    header { display: flex; align-items: center; justify-content: space-between; padding: 160px 40px 100px; background: linear-gradient(135deg, rgba(255,106,0,0.85) 0%, rgba(255,106,0,0.85) 100%), url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; color: #fff; margin-top: 60px; position: relative; }
-    header .hero-text { max-width: 50%; z-index: 1; }
-    header h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; margin-bottom: 20px; }
-    header p { font-size: 1.2rem; margin-bottom: 30px; line-height: 1.4; }
-    .btn { display: inline-block; padding: 16px 40px; background: var(--bg); color: var(--accent); text-decoration: none; border-radius: 4px; font-weight: 600; transition: background 0.3s; }
-    .btn:hover { background: #f0f0f0; }
-    /* Section */
     section { padding: 100px 40px; }
+    /* Hero */
+    header { height: 100vh; display: flex; align-items: center; background: linear-gradient(135deg, rgba(255,106,0,0.85) 0%, rgba(255,106,0,0.85) 100%), url('https://source.unsplash.com/1600x900/?blockchain,technology') center/cover no-repeat; position: relative; }
+    header::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.4); }
+    .hero { max-width: 600px; color: #fff; position: relative; z-index:1; }
+    .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; margin-bottom: 20px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 30px; line-height:1.4; }
+    .btn { display: inline-block; padding: 16px 40px; background: var(--bg); color: var(--accent); text-decoration: none; border-radius: var(--radius); font-weight: 600; transition: background 0.3s; }
+    .btn:hover { background: #f0f0f0; }
+    /* Features */
+    #features .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 40px; }
+    .feature-card { background: var(--light); border-radius: var(--radius); padding: 40px 20px; text-align: center; box-shadow: 0 6px 12px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .feature-card:hover { transform: translateY(-8px); }
+    .feature-card img { width: 60px; margin-bottom: 20px; }
+    .feature-card h3 { font-family: 'Montserrat', sans-serif; color: var(--primary); margin-bottom: 15px; }
+    .feature-card p { font-size: 0.95rem; line-height:1.5; }
     /* Services */
-    #services { background: var(--light); }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 40px; }
-    .feature { background: #fff; padding: 40px 20px; border-radius: 8px; text-align: center; box-shadow:0 6px 12px rgba(0,0,0,0.1); transition:transform 0.3s; }
-    .feature:hover { transform: translateY(-8px); }
-    .feature img { width:70px; margin-bottom:20px; }
-    .feature h3 { font-family: 'Montserrat', sans-serif; margin-bottom: 15px; color: var(--primary); }
-    .feature p { font-size: 0.95rem; line-height: 1.6; color: var(--text); }
-    /* Portfolio */
-    #work { background: var(--bg); }
-    .portfolio { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 30px; }
-    .project { position: relative; overflow: hidden; border-radius: 8px; }
-    .project img { width: 100%; height: auto; display: block; transition: transform 0.3s; }
-    .project:hover img { transform: scale(1.05); }
-    .project-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(33,33,33,0.85); color: #fff; padding: 20px; opacity: 0; transition: opacity 0.3s; }
-    .project:hover .project-overlay { opacity: 1; }
-    .project-overlay h4 { font-family: 'Montserrat', sans-serif; margin-bottom: 8px; }
-    .project-overlay p { font-size: 0.9rem; line-height: 1.4; }
-    /* Contact */
-    #contact { text-align: center; background: var(--light); }
+    #services { background: var(--bg); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 40px; }
+    .service-item { background: var(--light); border-radius: var(--radius); overflow: hidden; position: relative; }
+    .service-item img { width:100%; height:200px; object-fit:cover; }
+    .service-content { padding: 20px; }
+    .service-content h4 { font-family: 'Montserrat', sans-serif; color: var(--primary); margin-bottom:10px; }
+    .service-content p { font-size:0.95rem; line-height:1.5; }
+    /* Testimonials */
+    #testimonials { background: var(--light); text-align:center; }
+    .testimonials-list { display: flex; gap:40px; overflow-x: auto; padding-bottom:20px; }
+    .testimonial { min-width:300px; background: #fff; border-radius: var(--radius); padding:30px; box-shadow:0 6px 12px rgba(0,0,0,0.1); }
+    .testimonial p { font-style:italic; margin-bottom:15px; }
+    .testimonial span { font-family:'Montserrat',sans-serif; color:var(--primary); }
+    /* CTA */
+    #cta { background: var(--primary); color: #fff; text-align:center; }
+    #cta h2 { font-family:'Montserrat',sans-serif; font-size:2.5rem; margin-bottom:20px; }
     /* Footer */
-    footer { background: var(--primary); color: #fff; text-align: center; padding: 40px; }
-    footer p { margin-bottom: 8px; }
-    footer a { color: var(--accent); text-decoration: none; }
+    footer { background: var(--bg); text-align:center; padding:40px; }
+    footer p { margin-bottom:10px; }
+    footer a { color: var(--accent); text-decoration:none; }
   </style>
 </head>
 <body>
   <nav>
     <div class="logo">DigitalFoundations</div>
     <ul>
+      <li><a href="#features">Features</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#work">Work</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <header>
-    <div class="hero-text">
-      <h1>Evolve Your Digital Presence</h1>
-      <p>Empowering businesses with outstanding web experiences and seamless automation to drive growth.</p>
-      <a href="#contact" class="btn">Let's Talk</a>
+    <div class="hero">
+      <h1>Empower Your Business with Web3 Solutions</h1>
+      <p>DigitalFoundations crafts cutting-edge websites and automations that drive growth, engagement, and trust in the digital era.</p>
+      <a href="#contact" class="btn">Get Started</a>
     </div>
   </header>
 
-  <section id="services">
-    <h2 style="text-align:center; font-family:'Montserrat', sans-serif; color:var(--primary); margin-bottom:60px;">Our Services</h2>
-    <div class="features">
-      <div class="feature">
-        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=100&q=60" alt="Web Design">
-        <h3>Web Design & Development</h3>
-        <p>Engaging, responsive websites crafted for conversions and brand credibility.</p>
+  <section id="features">
+    <h2 style="text-align:center; font-family:'Montserrat',sans-serif; color:var(--primary); margin-bottom:60px;">Our Key Features</h2>
+    <div class="grid">
+      <div class="feature-card">
+        <img src="https://img.icons8.com/ios-filled/100/FF6A00/cloud-sync.png" alt="Scalable Infrastructure">
+        <h3>Scalable Infrastructure</h3>
+        <p>Robust hosting and architecture designed to grow with your user base.</p>
       </div>
-      <div class="feature">
-        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=100&q=60" alt="Automation">
-        <h3>Business Automation</h3>
-        <p>Custom workflows and integrations to automate repetitive tasks and streamline operations.</p>
+      <div class="feature-card">
+        <img src="https://img.icons8.com/ios-filled/100/FF6A00/lock--v1.png" alt="Secure Transactions">
+        <h3>Secure Transactions</h3>
+        <p>Blockchain-based security to ensure your data and transactions are protected.</p>
       </div>
-      <div class="feature">
-        <img src="https://images.unsplash.com/photo-1508387029773-793a0cf38127?auto=format&fit=crop&w=100&q=60" alt="SEO">
-        <h3>Local SEO Optimization</h3>
-        <p>Targeted strategies to boost visibility in local search results and attract nearby customers.</p>
+      <div class="feature-card">
+        <img src="https://img.icons8.com/ios-filled/100/FF6A00/automation.png" alt="Automated Workflows">
+        <h3>Automated Workflows</h3>
+        <p>Streamline operations with intelligent automation and integrations.</p>
       </div>
-      <div class="feature">
-        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=100&q=60" alt="Content">
-        <h3>Content Strategy</h3>
-        <p>Strategic content updates and marketing to engage your audience and drive repeat visits.</p>
+      <div class="feature-card">
+        <img src="https://img.icons8.com/ios-filled/100/FF6A00/search--v1.png" alt="Advanced Analytics">
+        <h3>Advanced Analytics</h3>
+        <p>Real-time insights and dashboards to make informed decisions.</p>
       </div>
     </div>
   </section>
 
-  <section id="work">
-    <h2 style="text-align:center; font-family:'Montserrat', sans-serif; color:var(--primary); margin-bottom:60px;">Recent Projects</h2>
-    <div class="portfolio">
-      <div class="project">
-        <img src="https://images.unsplash.com/photo-1590608897129-79c5b2d7a1af?auto=format&fit=crop&w=400&q=80" alt="Project 1">
-        <div class="project-overlay"><h4>E-commerce Redesign</h4><p>Boosted sales by 40% with a sleek, user-friendly redesign.</p></div>
+  <section id="services">
+    <h2 style="text-align:center; font-family:'Montserrat',sans-serif; color:var(--primary); margin-bottom:60px;">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <img src="https://source.unsplash.com/collection/190727/800x600" alt="Web Development">
+        <div class="service-content">
+          <h4>Web3 Development</h4>
+          <p>Smart contracts, dApps, and decentralized platforms tailored to your needs.</p>
+        </div>
       </div>
-      <div class="project">
-        <img src="https://images.unsplash.com/photo-1581091012184-77efcf4315c0?auto=format&fit=crop&w=400&q=80" alt="Project 2">
-        <div class="project-overlay"><h4>Clinic Automation</h4><p>Reduced no-shows by 70% through automated booking reminders.</p></div>
+      <div class="service-item">
+        <img src="https://source.unsplash.com/collection/190728/800x600" alt="UI/UX Design">
+        <div class="service-content">
+          <h4>UI/UX Design</h4>
+          <p>Intuitive interfaces and seamless experiences that delight your users.</p>
+        </div>
       </div>
-      <div class="project">
-        <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da8?auto=format&fit=crop&w=400&q=80" alt="Project 3">
-        <div class="project-overlay"><h4>SEO Excellence</h4><p>Achieved top-3 local rankings for competitive keywords.</p></div>
+      <div class="service-item">
+        <img src="https://source.unsplash.com/collection/190729/800x600" alt="Marketing Strategy">
+        <div class="service-content">
+          <h4>Marketing Strategy</h4>
+          <p>Data-driven campaigns to reach and convert your target audience effectively.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h2 style="font-family:'Montserrat',sans-serif; color:var(--primary); margin-bottom:40px;">What Our Clients Say</h2>
+    <div class="testimonials-list">
+      <div class="testimonial">
+        <p>“DigitalFoundations transformed our online presence. Their Web3 expertise gave us a competitive edge.”</p>
+        <span>— Alex R., Blockchain Startup CEO</span>
+      </div>
+      <div class="testimonial">
+        <p>“Their automation solutions saved us 20+ hours a week. Incredible impact on our operations.”</p>
+        <span>— Mia L., CTO at FinTech Co.</span>
+      </div>
+      <div class="testimonial">
+        <p>“We saw a 50% increase in engagement after the redesign. Truly professional work.”</p>
+        <span>— Kevin T., Marketing Director</span>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2 style="text-align:center; font-family:'Montserrat', sans-serif; color:var(--primary); margin-bottom:20px;">Get In Touch</h2>
-    <p style="text-align:center; color:var(--text); margin-bottom:30px;">Ready to elevate your digital foundation? Let’s start the conversation.</p>
-    <p style="text-align:center;"><a href="mailto:info@digitalfoundations.agency" class="btn">Email Us</a></p>
+    <h2 style="text-align:center; font-family:'Montserrat',sans-serif; color:var(--primary); margin-bottom:20px;">Get In Touch</h2>
+    <p style="text-align:center; color:var(--text); margin-bottom:30px;">Ready to elevate your digital foundation? Let’s start your project.</p>
+    <p style="text-align:center;"><a href="mailto:info@digitalfoundations.agency" class="btn">Contact Us</a></p>
   </section>
 
   <footer>
     <p>&copy; 2025 DigitalFoundations. All rights reserved.</p>
-    <p>Designed with passion and precision</p>
+    <p>Designed and built with passion.</p>
   </footer>
 </body>
 </html>
