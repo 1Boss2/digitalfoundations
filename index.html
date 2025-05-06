@@ -3,154 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DigitalFoundations | Accelerate Your Digital Growth</title>
+  <title>DigitalFoundations | Evolve Your Digital Presence</title>
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #004d40;
-      --accent-color: #fdd835;
-      --bg-light: #fafafa;
-      --text-dark: #212121;
-      --text-muted: #555555;
+      --primary: #2C3E50;
+      --accent: #E67E22;
+      --bg: #FFFFFF;
+      --text: #34495E;
+      --light: #ECF0F1;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
-    header {
-      background: url('https://source.unsplash.com/1600x900/?digital,agency') center/cover no-repeat;
-      color: #fff;
-      padding: 120px 20px;
-      text-align: center;
-    }
-    header h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 15px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-    header p {
-      font-size: 1.25rem;
-      max-width: 700px;
-      margin: 0 auto;
-      margin-bottom: 30px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-    }
-    .btn {
-      display: inline-block;
-      padding: 16px 36px;
-      font-family: 'Montserrat', sans-serif;
-      background: var(--accent-color);
-      color: var(--primary-color);
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: background 0.3s;
-    }
-    .btn:hover { background: #e6c830; }
-    section { padding: 80px 20px; max-width: 1000px; margin: 0 auto; }
-    .intro {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    .intro h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.25rem;
-      color: var(--primary-color);
-      margin-bottom: 15px;
-    }
-    .intro p { color: var(--text-muted); font-size: 1rem; }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-    }
-    .feature {
-      background: #fff;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .feature:hover { transform: translateY(-5px); }
-    .feature h3 {
-      font-family: 'Montserrat', sans-serif;
-      margin-bottom: 12px;
-      color: var(--primary-color);
-    }
-    .feature p { color: var(--text-muted); font-size: 0.95rem; }
-    .testimonials {
-      margin-top: 60px;
-      text-align: center;
-    }
-    .testimonials p {
-      font-style: italic;
-      color: var(--text-muted);
-      max-width: 700px;
-      margin: 0 auto 20px;
-    }
-    .testimonials span {
-      font-weight: bold;
-      color: var(--primary-color);
-    }
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      background: var(--primary-color);
-      color: #fff;
-    }
+    body { font-family: 'Roboto', sans-serif; color: var(--text); background: var(--bg); }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: var(--bg); position: fixed; width: 100%; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    nav .logo { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: var(--primary); }
+    nav ul { list-style: none; display: flex; gap: 30px; }
+    nav ul li a { text-decoration: none; color: var(--text); font-weight: 500; }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 140px 40px 80px; background: var(--light); margin-top: 60px; }
+    header .hero-text { max-width: 50%; }
+    header h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; }
+    header p { font-size: 1.1rem; margin-bottom: 30px; }
+    .btn { display: inline-block; padding: 15px 35px; background: var(--accent); color: #fff; text-decoration: none; border-radius: 4px; font-weight: 600; }
+    header .hero-image img { max-width: 100%; height: auto; border-radius: 8px; }
+    section { padding: 80px 40px; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 40px; }
+    .feature { background: var(--light); padding: 30px; border-radius: 8px; text-align: center; }
+    .feature h3 { font-family: 'Montserrat', sans-serif; margin-bottom: 15px; color: var(--primary); }
+    .feature p { font-size: 0.95rem; line-height: 1.5; }
+    .portfolio { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 30px; }
+    .project { position: relative; overflow: hidden; border-radius: 8px; }
+    .project img { width: 100%; height: auto; display: block; transition: transform 0.3s; }
+    .project:hover img { transform: scale(1.05); }
+    .project-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(44,62,80,0.8); color: #fff; padding: 20px; opacity: 0; transition: opacity 0.3s; }
+    .project:hover .project-overlay { opacity: 1; }
+    footer { background: var(--primary); color: #fff; text-align: center; padding: 40px; }
+    footer p { margin-bottom: 10px; }
+    footer a { color: var(--accent); text-decoration: none; }
   </style>
 </head>
 <body>
+  <nav>
+    <div class="logo">DigitalFoundations</div>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <header>
-    <h1>We Accelerate Your Digital Growth</h1>
-    <p>DigitalFoundations crafts websites and automations that turn visitors into customers and streamline your operations.</p>
-    <a href="#audit" class="btn">Get Your Free Audit</a>
+    <div class="hero-text">
+      <h1>Evolve Your Digital Presence</h1>
+      <p>At DigitalFoundations, we design websites that captivate, and build automations that perform, so you can focus on growing your business.</p>
+      <a href="#contact" class="btn">Let's Talk</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://source.unsplash.com/600x400/?office,technology" alt="Digital Strategy">
+    </div>
   </header>
 
-  <section class="intro" id="audit">
-    <h2>Your Free 5-Minute Website Audit</h2>
-    <p>Discover quick wins and growth opportunities with a personalized audit—no strings attached, just actionable insights.</p>
-    <a href="mailto:info@digitalfoundations.agency?subject=Audit%20Request" class="btn">Request Audit</a>
-  </section>
-
-  <section>
-    <div class="intro">
-      <h2>How We Help You Win Online</h2>
-      <p>From stunning web design to powerful automation, we provide a full-stack solution that amplifies your brand, boosts leads, and drives revenue.</p>
-    </div>
+  <section id="services">
+    <h2 style="text-align:center; font-family:'Montserrat', sans-serif; color:var(--primary); margin-bottom:50px;">Our Services</h2>
     <div class="features">
       <div class="feature">
-        <h3>Conversion-Driven Design</h3>
-        <p>Custom websites built to highlight your unique value and guide prospects smoothly toward taking action.</p>
+        <h3>Web Design & Development</h3>
+        <p>Custom, responsive websites that reflect your brand, engage users, and drive conversions.</p>
       </div>
       <div class="feature">
-        <h3>Automations & Workflows</h3>
-        <p>Automated email sequences, booking systems, and follow-up reminders that keep your pipeline full without lifting a finger.</p>
+        <h3>Business Automation</h3>
+        <p>Automate repetitive tasks with tailored workflows, freeing up time to focus on what matters.</p>
       </div>
       <div class="feature">
-        <h3>Local SEO & Visibility</h3>
-        <p>Strategic optimization to rank higher in local searches, get found on Google Maps, and attract ready-to-buy customers in your area.</p>
+        <h3>Local SEO Optimization</h3>
+        <p>Get found by customers in your area with targeted SEO strategies and Google My Business management.</p>
       </div>
       <div class="feature">
-        <h3>Ongoing Support & Updates</h3>
-        <p>Monthly content refreshes, performance monitoring, and priority support to ensure your site stays cutting-edge.</p>
+        <h3>Content Strategy</h3>
+        <p>Ongoing content updates and marketing to keep your audience engaged and returning for more.</p>
       </div>
     </div>
+  </section>
 
-    <div class="testimonials">
-      <p>“DigitalFoundations revamped our website, and our inquiries doubled within two weeks. Their automation setup saves me hours every week.”</p>
-      <span>— Sarah P., Local Boutique Owner</span>
+  <section id="work">
+    <h2 style="text-align:center; font-family:'Montserrat', sans-serif; color:var(--primary); margin-bottom:50px;">Recent Projects</h2>
+    <div class="portfolio">
+      <div class="project">
+        <img src="https://source.unsplash.com/400x300/?website,design" alt="Project 1">
+        <div class="project-overlay"><h4>Project 1</h4><p>Revamp of a local e-commerce store</p></div>
+      </div>
+      <div class="project">
+        <img src="https://source.unsplash.com/400x300/?automation,workflow" alt="Project 2">
+        <div class="project-overlay"><h4>Project 2</h4><p>Automated booking system for a clinic</p></div>
+      </div>
+      <div class="project">
+        <img src="https://source.unsplash.com/400x300/?seo,local" alt="Project 3">
+        <div class="project-overlay"><h4>Project 3</h4><p>Local SEO boost for a restaurant</p></div>
+      </div>
     </div>
+  </section>
+
+  <section id="contact">
+    <h2 style="text-align:center; font-family:'Montserrat', sans-serif; color:var(--primary); margin-bottom:20px;">Get In Touch</h2>
+    <p style="text-align:center; color:var(--text); margin-bottom:30px;">Ready to transform your online presence? Send us a message.</p>
+    <p style="text-align:center;"><a href="mailto:info@digitalfoundations.agency" class="btn">Email Us</a></p>
   </section>
 
   <footer>
-    &copy; 2025 DigitalFoundations • Your growth, our foundation
+    <p>&copy; 2025 DigitalFoundations. All rights reserved.</p>
+    <p>Made with ♥ by DigitalFoundations</p>
   </footer>
 </body>
 </html>
