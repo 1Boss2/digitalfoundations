@@ -8,11 +8,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #2C3E50;
-      --accent: #E67E22;
+      --primary: #212121;
+      --accent: #FF6A00;
       --bg: #FFFFFF;
-      --text: #34495E;
-      --light: #ECF0F1;
+      --text: #333333;
+      --light: #F7F7F7;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Roboto', sans-serif; color: var(--text); background: var(--bg); }
@@ -21,34 +21,37 @@
     nav ul { list-style: none; display: flex; gap: 30px; }
     nav ul li a { text-decoration: none; color: var(--text); font-weight: 500; }
     /* Hero */
-    header { display: flex; align-items: center; justify-content: space-between; padding: 140px 40px 80px; background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat; color: #fff; margin-top: 60px; }
-    header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: -1; }
-    header .hero-text { max-width: 50%; }
-    header h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; color: #fff; margin-bottom: 20px; }
-    header p { font-size: 1.1rem; margin-bottom: 30px; }
-    .btn { display: inline-block; padding: 15px 35px; background: var(--accent); color: #fff; text-decoration: none; border-radius: 4px; font-weight: 600; }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 160px 40px 100px; background: linear-gradient(135deg, rgba(255,106,0,0.85) 0%, rgba(255,106,0,0.85) 100%), url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; color: #fff; margin-top: 60px; position: relative; }
+    header .hero-text { max-width: 50%; z-index: 1; }
+    header h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; margin-bottom: 20px; }
+    header p { font-size: 1.2rem; margin-bottom: 30px; line-height: 1.4; }
+    .btn { display: inline-block; padding: 16px 40px; background: var(--bg); color: var(--accent); text-decoration: none; border-radius: 4px; font-weight: 600; transition: background 0.3s; }
+    .btn:hover { background: #f0f0f0; }
+    /* Section */
+    section { padding: 100px 40px; }
     /* Services */
-    section { padding: 80px 40px; }
     #services { background: var(--light); }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 40px; }
-    .feature { background: #fff; padding: 30px; border-radius: 8px; text-align: center; box-shadow:0 4px 8px rgba(0,0,0,0.1); transition:transform 0.3s; }
-    .feature:hover { transform: translateY(-5px); }
-    .feature img { width:60px; margin-bottom:20px; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 40px; }
+    .feature { background: #fff; padding: 40px 20px; border-radius: 8px; text-align: center; box-shadow:0 6px 12px rgba(0,0,0,0.1); transition:transform 0.3s; }
+    .feature:hover { transform: translateY(-8px); }
+    .feature img { width:70px; margin-bottom:20px; }
     .feature h3 { font-family: 'Montserrat', sans-serif; margin-bottom: 15px; color: var(--primary); }
-    .feature p { font-size: 0.95rem; line-height: 1.5; color: var(--text); }
+    .feature p { font-size: 0.95rem; line-height: 1.6; color: var(--text); }
     /* Portfolio */
     #work { background: var(--bg); }
-    .portfolio { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 30px; }
+    .portfolio { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 30px; }
     .project { position: relative; overflow: hidden; border-radius: 8px; }
     .project img { width: 100%; height: auto; display: block; transition: transform 0.3s; }
     .project:hover img { transform: scale(1.05); }
-    .project-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(44,62,80,0.8); color: #fff; padding: 20px; opacity: 0; transition: opacity 0.3s; }
+    .project-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(33,33,33,0.85); color: #fff; padding: 20px; opacity: 0; transition: opacity 0.3s; }
     .project:hover .project-overlay { opacity: 1; }
+    .project-overlay h4 { font-family: 'Montserrat', sans-serif; margin-bottom: 8px; }
+    .project-overlay p { font-size: 0.9rem; line-height: 1.4; }
     /* Contact */
     #contact { text-align: center; background: var(--light); }
     /* Footer */
     footer { background: var(--primary); color: #fff; text-align: center; padding: 40px; }
-    footer p { margin-bottom: 10px; }
+    footer p { margin-bottom: 8px; }
     footer a { color: var(--accent); text-decoration: none; }
   </style>
 </head>
@@ -65,67 +68,64 @@
   <header>
     <div class="hero-text">
       <h1>Evolve Your Digital Presence</h1>
-      <p>At DigitalFoundations, we design websites that captivate, and build automations that perform—freeing you to focus on growth.</p>
+      <p>Empowering businesses with outstanding web experiences and seamless automation to drive growth.</p>
       <a href="#contact" class="btn">Let's Talk</a>
-    </div>
-    <div class="hero-image">
-      <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=600&q=80" alt="Digital Strategy">
     </div>
   </header>
 
   <section id="services">
-    <h2 style="text-align:center; font-family:'Montserrat', sans-serif; color:var(--primary); margin-bottom:50px;">Our Services</h2>
+    <h2 style="text-align:center; font-family:'Montserrat', sans-serif; color:var(--primary); margin-bottom:60px;">Our Services</h2>
     <div class="features">
       <div class="feature">
-        <img src="https://img.icons8.com/ios-filled/100/000000/design.png" alt="Web Design">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=100&q=60" alt="Web Design">
         <h3>Web Design & Development</h3>
-        <p>Custom, responsive websites that reflect your brand, engage users, and drive conversions.</p>
+        <p>Engaging, responsive websites crafted for conversions and brand credibility.</p>
       </div>
       <div class="feature">
-        <img src="https://img.icons8.com/ios-filled/100/000000/automation.png" alt="Automation">
+        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=100&q=60" alt="Automation">
         <h3>Business Automation</h3>
-        <p>Automate repetitive tasks with tailored workflows, freeing up time to focus on what matters.</p>
+        <p>Custom workflows and integrations to automate repetitive tasks and streamline operations.</p>
       </div>
       <div class="feature">
-        <img src="https://img.icons8.com/ios-filled/100/000000/seo.png" alt="SEO">
+        <img src="https://images.unsplash.com/photo-1508387029773-793a0cf38127?auto=format&fit=crop&w=100&q=60" alt="SEO">
         <h3>Local SEO Optimization</h3>
-        <p>Get found by customers in your area with targeted SEO strategies and Google My Business management.</p>
+        <p>Targeted strategies to boost visibility in local search results and attract nearby customers.</p>
       </div>
       <div class="feature">
-        <img src="https://img.icons8.com/ios-filled/100/000000/content.png" alt="Content">
+        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=100&q=60" alt="Content">
         <h3>Content Strategy</h3>
-        <p>Ongoing content updates and marketing to keep your audience engaged and returning for more.</p>
+        <p>Strategic content updates and marketing to engage your audience and drive repeat visits.</p>
       </div>
     </div>
   </section>
 
   <section id="work">
-    <h2 style="text-align:center; font-family:'Montserrat', sans-serif; color:var(--primary); margin-bottom:50px;">Recent Projects</h2>
+    <h2 style="text-align:center; font-family:'Montserrat', sans-serif; color:var(--primary); margin-bottom:60px;">Recent Projects</h2>
     <div class="portfolio">
       <div class="project">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" alt="E-commerce Redesign">
-        <div class="project-overlay"><h4>Local Store Revamp</h4><p>E-commerce website overhaul that increased sales by 40%.</p></div>
+        <img src="https://images.unsplash.com/photo-1590608897129-79c5b2d7a1af?auto=format&fit=crop&w=400&q=80" alt="Project 1">
+        <div class="project-overlay"><h4>E-commerce Redesign</h4><p>Boosted sales by 40% with a sleek, user-friendly redesign.</p></div>
       </div>
       <div class="project">
-        <img src="https://images.unsplash.com/photo-1581091870628-4bccc7b95f36?auto=format&fit=crop&w=400&q=80" alt="Automation System">
-        <div class="project-overlay"><h4>Clinic Automation</h4><p>Streamlined booking system reducing no-shows by 70%.</p></div>
+        <img src="https://images.unsplash.com/photo-1581091012184-77efcf4315c0?auto=format&fit=crop&w=400&q=80" alt="Project 2">
+        <div class="project-overlay"><h4>Clinic Automation</h4><p>Reduced no-shows by 70% through automated booking reminders.</p></div>
       </div>
       <div class="project">
-        <img src="https://images.unsplash.com/photo-1508830524289-0adcbe822b40?auto=format&fit=crop&w=400&q=80" alt="SEO Results">
-        <div class="project-overlay"><h4>Restaurant SEO</h4><p>Ranked top 3 on Google Maps for key local searches.</p></div>
+        <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da8?auto=format&fit=crop&w=400&q=80" alt="Project 3">
+        <div class="project-overlay"><h4>SEO Excellence</h4><p>Achieved top-3 local rankings for competitive keywords.</p></div>
       </div>
     </div>
   </section>
 
   <section id="contact">
     <h2 style="text-align:center; font-family:'Montserrat', sans-serif; color:var(--primary); margin-bottom:20px;">Get In Touch</h2>
-    <p style="text-align:center; color:var(--text); margin-bottom:30px;">Ready to transform your online presence? Send us a message.</p>
+    <p style="text-align:center; color:var(--text); margin-bottom:30px;">Ready to elevate your digital foundation? Let’s start the conversation.</p>
     <p style="text-align:center;"><a href="mailto:info@digitalfoundations.agency" class="btn">Email Us</a></p>
   </section>
 
   <footer>
     <p>&copy; 2025 DigitalFoundations. All rights reserved.</p>
-    <p>Made with ♥ by DigitalFoundations</p>
+    <p>Designed with passion and precision</p>
   </footer>
 </body>
 </html>
