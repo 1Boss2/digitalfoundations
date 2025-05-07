@@ -1,34 +1,184 @@
-<section id="strategy-form" style="background: #0b1120; color: #f4f4f9; padding: 80px 40px; text-align: center;">
-  <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Get a Personalized Audit — Free</h2>
-  <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.125rem; line-height: 1.6;">
-    Hi there — we’ve been exploring businesses in <strong>[City]</strong> and noticed <strong>[Business Name]</strong> could unlock more growth online.
-    Let us send you a free, no-obligation audit to highlight key wins — tailored just for your brand.
-  </p>
-  <p style="max-width: 700px; margin: 0 auto 40px; font-size: 1.125rem; line-height: 1.6;">
-    Over <strong>100+ businesses</strong> have used our audits to improve visibility, automate outreach, and boost revenue.
-  </p>
-  <form action="https://hooks.zapier.com/hooks/catch/YOUR-ZAPIER-WEBHOOK-ID" method="POST" style="max-width: 600px; margin: 0 auto; text-align: left;">
-    <div style="margin-bottom: 20px;">
-      <label for="name" style="display: block; font-weight: 600; margin-bottom: 8px;">Your Name</label>
-      <input type="text" id="name" name="name" required style="width: 100%; padding: 15px; border-radius: 8px; border: none; background: #f4f4f9; color: #1c1c1e;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DigitalFoundations | Crafting Digital Excellence</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+@@ -17,19 +16,16 @@
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Poppins',sans-serif; color:var(--text-dark); background:var(--light-bg); overflow-x:hidden; scroll-behavior:smooth; }
+    /* Splash */
+    #splash { position:fixed; inset:0; background:var(--dark-bg); display:flex; align-items:center; justify-content:center; z-index:9999; }
+    #splash h1 { color:var(--accent); font-size:4rem; opacity:0; animation:zoomFade 2s ease-out forwards; }
+    @keyframes zoomFade {0%{transform:scale(0.5);opacity:0;}50%{opacity:1;}100%{transform:scale(2);opacity:0;}}
+    /* Nav */
+    nav { position:fixed; top:0; width:100%; display:flex; justify-content:space-between; align-items:center; padding:20px 40px; background:rgba(11,17,32,0.85); z-index:100; opacity:0; animation:fadeIn 1s ease-out 2s forwards; }
+    .logo { display:flex; align-items:center; gap:8px; color:var(--text-light); font-size:1.5rem; font-weight:600; }
+    .logo svg { width:32px; height:32px; fill:var(--accent); }
+    nav ul { list-style:none; display:flex; gap:20px; }
+    nav ul li a { color:var(--text-light); text-decoration:none; font-weight:500; transition:color .3s; }
+    nav ul li a:hover { color:var(--accent); }
+    @keyframes fadeIn { to{opacity:1;} }
+    /* Hero */
+    header { position:relative; height:100vh; display:flex; align-items:center; justify-content:center; background: linear-gradient(135deg, rgba(255,106,61,0.85), rgba(255,106,61,0.85)), url('https://images.unsplash.com/photo-1600585154340-be6161cbbed7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; visibility:hidden; animation:showContent .1s linear 2.5s forwards; }
+    @keyframes showContent{to{visibility:visible;}}
+    header::before{content:'';position:absolute;inset:0;background:rgba(11,17,32,0.5);}    
+@@ -40,43 +36,26 @@
+    .btn-primary { padding:15px 40px; background:var(--light-bg); color:var(--accent); border-radius:var(--radius); text-decoration:none; font-weight:600; animation-delay:3.3s; transition:background .3s; }
+    .btn-primary:hover { background:#f0f0f0; }
+    @keyframes fadeSlideIn{ to{opacity:1;transform:translateY(0);} }
+    /* Sections */
+    section { padding:80px 40px; opacity:0; transform:translateY(20px); }
+    section.animate{ animation:fadeSlideIn 1s ease-out forwards; }
+    section { padding:80px 40px; opacity:0; transform:translateY(20px); animation:fadeSlideIn 1s ease-out forwards; }
+    h2 { font-size:2.5rem; margin-bottom:20px; text-align:center; color:var(--dark-bg); }
+    p, li { max-width:800px; margin:0 auto 16px; line-height:1.6; }
+    ul { list-style:disc; padding-left:20px; }
+    /* About */
+    #about{ background:var(--light-bg); }
+    #about .phone{ text-align:center; font-size:1.25rem; margin-top:10px; color:var(--accent); }
+    /* Services */
+    #services{ background:var(--dark-bg); color:var(--text-light); }
+    .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin-top:20px; }
+    .card{ background:var(--light-bg); color:var(--text-dark); border-radius:var(--radius); overflow:hidden; box-shadow:0 6px 12px rgba(0,0,0,0.1); }
+    .card img{ width:100%; height:180px; object-fit:cover; filter:brightness(0.9); }
+    .card-content{ padding:16px; }
+    .card-content h3{ font-size:1.5rem; margin-bottom:8px; }
+    /* Team */
+    #team{ background:var(--light-bg); }
+    .team-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:30px; margin-top:20px; text-align:center; }
+    .member{ padding:20px; border-radius:var(--radius); box-shadow:0 4px 8px rgba(0,0,0,0.1); background:#fff; }
+    .member img{ width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:12px; }
+    .member h4{ font-size:1.25rem; margin-bottom:4px; color:var(--dark-bg); }
+    .member p{ font-size:0.9rem; color:#555; }
+    /* Items grid for blog/events/cases */
+    .items{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin-top:20px; }
+    .item{ border-radius:var(--radius); overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1); background:#fff; }
+    .item img{ width:100%; height:180px; object-fit:cover; }
+    .item-content{ padding:16px; }
+    .item-content h3{ font-size:1.25rem; margin-bottom:8px; }
+    /* Testimonials */
+    #testimonials{ background:var(--light-bg); }
+    .testimonial{ max-width:700px; margin:20px auto; font-style:italic; }
+    .testimonial cite{ display:block; margin-top:10px; text-align:right; font-weight:600; }
+    /* Contact & Footer */
+    #contact{ background:var(--light-bg); text-align:center; }
+    form { max-width:500px; margin:0 auto; display:flex; flex-direction:column; gap:16px; margin-top:40px; }
+    input, textarea { padding:12px; border:1px solid #ccc; border-radius:var(--radius); font-family:inherit; }
+    button { padding:12px; background:var(--accent); color:white; font-weight:bold; border:none; border-radius:var(--radius); cursor:pointer; }
+    button:hover { background:#e75b2e; }
+    footer{ background:var(--dark-bg); color:var(--text-light); text-align:center; padding:20px; font-size:0.9rem; }
+    footer a{ color:var(--accent); text-decoration:none; }
+    .testimonial { max-width:600px; margin:0 auto; padding:20px; background:#f9f9f9; border-left:4px solid var(--accent); border-radius:var(--radius); margin-bottom:20px; }
+    .team-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; text-align:center; margin-top:30px; }
+    .team-grid img { width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:10px; }
+    .blog-preview { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin-top:20px; }
+    .blog-card { border-radius:var(--radius); background:#f5f5f5; padding:16px; }
+    @media(max-width:768px){ .hero h1{font-size:2.75rem;} }
+  </style>
+</head>
+@@ -85,40 +64,91 @@
+  <nav>
+    <div class="logo"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="30" height="80"/><rect x="50" y="10" width="40" height="20"/><rect x="50" y="40" width="40" height="20"/><rect x="50" y="70" width="40" height="20"/></svg><span>DigitalFoundations</span></div>
+    <ul>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#cases">Case Studies</a></li>
+      <li><a href="#team">Meet the Team</a></li>
+      <li><a href="#case-studies">Case Studies</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <div class="hero">
+      <h1>Transforming Ideas Into Digital Reality</h1>
+      <p>We build and manage websites, automate workflows, and drive growth through strategic digital marketing.</p>
+      <a href="#about" class="btn-primary">Learn More</a>
     </div>
-    <div style="margin-bottom: 20px;">
-      <label for="email" style="display: block; font-weight: 600; margin-bottom: 8px;">Email Address</label>
-      <input type="email" id="email" name="email" required style="width: 100%; padding: 15px; border-radius: 8px; border: none; background: #f4f4f9; color: #1c1c1e;">
+  </header>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Welcome to DigitalFoundations — a digital agency like no other. Driven results, personalized marketing.</p>
+    <p>We pride ourselves on a bespoke approach, proven expertise, and commitment to delivering measurable growth. With over 100 clients served since 2010, we transform businesses and exceed expectations.</p>
+    <p>Our tailored strategies begin with a deep-dive discovery to understand your unique goals, challenges, and market. We craft data-driven solutions—far from one-size-fits-all.</p>
+    <p class="phone">Call us: 01780 693 003</p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Web Dev"><div class="card-content"><h3>Website Development & Hosting</h3><p>Custom, responsive sites on secure hosting with 24/7 monitoring and backups.</p></div></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Web Dev"><div class="card-content"><h3>Website Development</h3><p>Custom, responsive sites on secure hosting with 24/7 monitoring and backups.</p></div></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Automation"><div class="card-content"><h3>Workflow Automation</h3><p>Streamline operations with email sequences, booking systems, CRM integrations, and more.</p></div></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&w=800&q=80" alt="Digital Marketing"><div class="card-content"><h3>Digital Marketing</h3><p>SEO, PPC, and content strategies tailored to your target audience for measurable growth.</p></div></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="AI Automation"><div class="card-content"><h3>AI-Powered Automation</h3><p>Custom GPT agents, AI-powered customer support, and content generation tools to boost productivity.</p></div></div>
     </div>
-    <div style="margin-bottom: 20px;">
-      <label for="business" style="display: block; font-weight: 600; margin-bottom: 8px;">Business Name</label>
-      <input type="text" id="business" name="business" style="width: 100%; padding: 15px; border-radius: 8px; border: none; background: #f4f4f9; color: #1c1c1e;">
+  </section>
+  <section id="blog">
+    <h2>Our Blog</h2>
+    <div class="blog-preview">
+      <div class="blog-card"><h3>5 Automation Hacks That Save Hours</h3><p>Discover powerful tools and methods we use to streamline your workflow.</p></div>
+      <div class="blog-card"><h3>SEO in 2025: What You Need to Know</h3><p>Stay ahead with the newest trends and strategies for search visibility.</p></div>
     </div>
-    <div style="margin-bottom: 20px;">
-      <label for="city" style="display: block; font-weight: 600; margin-bottom: 8px;">City or Location</label>
-      <input type="text" id="city" name="city" style="width: 100%; padding: 15px; border-radius: 8px; border: none; background: #f4f4f9; color: #1c1c1e;">
+  </section>
+  <section id="events">
+    <h2>Events</h2>
+    <p>Join our monthly webinars or catch us live at industry conferences. Learn from our team, partners, and clients.</p>
+    <ul>
+      <li>May 15, 2025 – Webinar: “AI & Automation for Small Businesses”</li>
+      <li>June 2, 2025 – London Tech Conference Booth #D14</li>
+    </ul>
+  </section>
+  <section id="case-studies">
+    <h2>Case Studies</h2>
+    <p>See how we helped brands like yours grow with strategic digital solutions.</p>
+    <ul>
+      <li><strong>ZenSkin Clinic:</strong> +250% web leads in 90 days with SEO & Google Ads.</li>
+      <li><strong>FitForce Gyms:</strong> Automated booking and CRM cut admin time by 70%.</li>
+    </ul>
+  </section>
+  <section id="team">
+    <h2>Meet the Team</h2>
+    <div class="team-grid">
+      <div><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team"><p><strong>James Carter</strong><br>Founder & Lead Strategist</p></div>
+      <div><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team"><p><strong>Lisa Nguyen</strong><br>Head of Design</p></div>
+      <div><img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Team"><p><strong>Mark Davis</strong><br>Automation Engineer</p></div>
     </div>
-    <div style="margin-bottom: 20px;">
-      <label for="message" style="display: block; font-weight: 600; margin-bottom: 8px;">Tell us a bit about your goals</label>
-      <textarea id="message" name="message" rows="4" style="width: 100%; padding: 15px; border-radius: 8px; border: none; background: #f4f4f9; color: #1c1c1e;"></textarea>
+  </section>
+  <section id="testimonials">
+    <h2>What Clients Say</h2>
+    <div class="testimonial">
+      <p>“DigitalFoundations completely transformed our digital presence. Bookings are up and stress is down.”</p>
+      <p><strong>— Sarah M., ZenSkin Clinic</strong></p>
     </div>
-    <button type="submit" style="display: inline-block; padding: 15px 40px; background: #ff6a3d; color: #fff; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: background 0.3s;">Request My Free Audit</button>
-  </form>
-  <p style="font-size: 0.875rem; color: #aaa; margin-top: 20px;">We’ll get back to you within 24 hours. No spam, ever.</p>
-</section>
+    <div class="testimonial">
+      <p>“They automated what we didn’t even know was possible. Highly recommended.”</p>
+      <p><strong>— Mike T., FitForce Gyms</strong></p>
+    </div>
+  </section>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  <footer>
+    &copy; 2025 DigitalFoundations. All rights reserved. | <a href="#">Privacy Policy</a>
+  </footer>
+</body>
+</html>
