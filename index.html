@@ -17,115 +17,62 @@
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family:'Poppins',sans-serif; color:var(--text-dark); background:var(--light-bg); scroll-behavior:smooth; overflow-x:hidden; }
-    nav { position:fixed; top:0; width:100%; display:flex; justify-content:space-between; align-items:center; padding:20px 40px; background:rgba(11,17,32,0.85); z-index:100; }
-    nav .logo { color:var(--text-light); font-size:1.5rem; font-weight:600; }
+    /* Logo SVG */
+    .logo { display:flex; align-items:center; gap:8px; }
+    .logo svg { width:32px; height:32px; fill:var(--accent); }
+    .logo span { color:var(--text-light); font-size:1.5rem; font-weight:600; }
+    /* Splash Screen */
+    #splash { position:fixed; inset:0; background:var(--dark-bg); display:flex; align-items:center; justify-content:center; z-index:9999; }
+    #splash h1 { color:var(--accent); font-size:4rem; opacity:0; animation:zoomFade 2s ease-out forwards; }
+    @keyframes zoomFade { 0% { transform:scale(0.5); opacity:0; } 50% { opacity:1; } 100% { transform:scale(2); opacity:0; } }
+    /* Navigation */
+    nav { position:fixed; top:0; width:100%; display:flex; justify-content:space-between; align-items:center; padding:20px 40px; background:rgba(11,17,32,0.85); z-index:100; opacity:0; animation:fadeIn 1s ease-out 2s forwards; }
     nav ul { list-style:none; display:flex; gap:30px; }
     nav ul li a { color:var(--text-light); text-decoration:none; font-weight:500; transition:color .3s; }
     nav ul li a:hover { color:var(--accent); }
-    header { position:relative; height:100vh; display:flex; align-items:center; justify-content:center; background: linear-gradient(135deg, rgba(255,106,61,0.85) 0%, rgba(255,106,61,0.85) 100%), url('https://images.unsplash.com/photo-1600585154340-be6161cbbed7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; }
+    @keyframes fadeIn { to { opacity:1; } }
+    /* Hero */
+    header { position:relative; height:100vh; display:flex; align-items:center; justify-content:center; background: linear-gradient(135deg, rgba(255,106,61,0.85) 0%, rgba(255,106,61,0.85) 100%), url('https://images.unsplash.com/photo-1600585154340-be6161cbbed7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; visibility:hidden; animation:showContent 0.1s linear 2.5s forwards; }
+    @keyframes showContent { to { visibility:visible; } }
     header::before { content:''; position:absolute; inset:0; background:rgba(11,17,32,0.5); }
     .hero { position:relative; text-align:center; color:var(--text-light); max-width:900px; padding:0 20px; }
-    .hero h1 { font-size:4rem; margin-bottom:20px; opacity:0; transform:translateY(20px); animation:fadeSlideIn 1s ease-out forwards; }
-    .hero p { font-size:1.125rem; margin-bottom:30px; line-height:1.6; opacity:0; transform:translateY(20px); animation:fadeSlideIn 1s ease-out forwards 0.5s; }
-    @keyframes fadeSlideIn { to { opacity:1; transform:translateY(0); } }
-    .btn-primary { padding:15px 40px; background:var(--light-bg); color:var(--accent); text-decoration:none; border-radius:var(--radius); font-weight:600; transition:background .3s; opacity:0; transform:translateY(20px); animation:fadeSlideIn 1s ease-out forwards 1s; }
+    .hero h1, .hero p, .btn-primary { opacity:0; transform:translateY(20px); animation:fadeSlideIn 1s ease-out forwards; }
+    .hero h1 { font-size:4rem; margin-bottom:20px; animation-delay:2.7s; }
+    .hero p { font-size:1.125rem; margin-bottom:30px; line-height:1.6; animation-delay:3s; }
+    .btn-primary { padding:15px 40px; background:var(--light-bg); color:var(--accent); text-decoration:none; border-radius:var(--radius); font-weight:600; transition:background .3s; animation-delay:3.3s; }
     .btn-primary:hover { background:#f0f0f0; }
-    section { padding:100px 40px; }
-    #about { background:var(--light-bg); text-align:center; }
-    #about h2 { font-size:2.5rem; margin-bottom:20px; color:var(--dark-bg); }
-    #about p { max-width:700px; margin:0 auto 40px; line-height:1.6; color:var(--text-dark); }
-    #value { background:var(--accent); color:#fff; text-align:center; }
-    #value h2 { font-size:2.5rem; margin-bottom:20px; }
-    #value p { max-width:800px; margin:0 auto; line-height:1.6; }
-    #services { background:var(--dark-bg); color:var(--text-light); }
-    #services h2 { text-align:center; font-size:2.5rem; margin-bottom:60px; }
-    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:40px; }
-    .card { background:var(--light-bg); color:var(--text-dark); border-radius:var(--radius); overflow:hidden; box-shadow:0 8px 16px rgba(0,0,0,0.1); }
-    .card img { width:100%; height:200px; object-fit:cover; filter: brightness(0.9); }
-    .card-content { padding:20px; }
-    .card-content h3 { font-size:1.5rem; margin-bottom:15px; }
-    .card-content p { line-height:1.6; font-size:1rem; }
-    #leads { background:var(--light-bg); }
-    #leads h2 { text-align:center; font-size:2.5rem; color:var(--dark-bg); margin-bottom:30px; }
-    .lead-points { max-width:800px; margin:0 auto; text-align:left; list-style:disc; color:var(--text-dark); line-height:1.6; }
-    #contact { background:var(--light-bg); text-align:center; }
-    #contact h2 { font-size:2.5rem; margin-bottom:20px; }
-    #contact p { margin-bottom:30px; line-height:1.6; }
-    footer { background:var(--dark-bg); color:var(--text-light); text-align:center; padding:40px; }
-    footer p a { color:var(--accent); text-decoration:none; }
-    @media(max-width:768px){ .hero h1{font-size:2.75rem;} }
+    @keyframes fadeSlideIn { to { opacity:1; transform:translateY(0); } }
+    section { padding:100px 40px; opacity:0; transform:translateY(20px); }
+    section.animate { animation:fadeSlideIn 1s ease-out forwards; }
   </style>
 </head>
 <body>
+  <div id="splash"><h1>DigitalFoundations</h1></div>
   <nav>
-    <div class="logo">DigitalFoundations</div>
+    <div class="logo"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="30" height="80"/><rect x="50" y="10" width="40" height="20"/><rect x="50" y="40" width="40" height="20"/><rect x="50" y="70" width="40" height="20"/></svg><span>DigitalFoundations</span></div>
     <ul>
       <li><a href="#about">About</a></li>
-      <li><a href="#value">Why Us</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#leads">100M Leads Framework</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <header>
     <div class="hero">
-      <h1>DigitalFoundations</h1>
-      <p>Building websites, automating workflows, and delivering growth-driven marketing to scale your business.</p>
+      <h1>Transforming Ideas Into Digital Reality</h1>
+      <p>We build and manage websites, automate workflows, and drive growth through strategic digital marketing.</p>
       <a href="#contact" class="btn-primary">Let's Talk</a>
     </div>
   </header>
 
   <section id="about">
     <h2>About Us</h2>
-    <p>DigitalFoundations is your full-service digital partner. We develop custom websites, manage secure hosting, and implement intelligent automations to streamline operations. Our marketing strategies ensure your brand reaches the right audience, driving measurable results.</p>
-  </section>
-
-  <section id="value">
-    <h2>Why Choose DigitalFoundations?</h2>
-    <p>We apply proven frameworks from Alex Hormozi's "100M Leads" method:</p>
-    <p>• **Offer Clarity:** Clear, compelling offers that speak directly to customer pain points.<br>
-       • **Value Ladder:** Tiered services to maximize customer lifetime value.<br>
-       • **Conversion Triggers:** Scarcity, urgency, and social proof baked into every touchpoint.<br>
-    </p>
+    <p>DigitalFoundations is a full-service digital agency specializing in web development, hosting, automation, and marketing. Our mission is to deliver impactful digital solutions that accelerate growth and exceed expectations.</p>
   </section>
 
   <section id="services">
     <h2>Our Services</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Website Development">
-        <div class="card-content">
-          <h3>Website Development & Hosting</h3>
-          <p>Secure, scalable sites built to perform. We handle setup, maintenance, and optimization for peace of mind.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Automation">
-        <div class="card-content">
-          <h3>Workflow Automation</h3>
-          <p>Streamline client interactions and internal processes with custom automations—email, booking, data syncs, and more.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1515377905703-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Digital Marketing">
-        <div class="card-content">
-          <h3>Digital Marketing & SEO</h3>
-          <p>Data-driven campaigns—SEO, PPC, social media—to boost visibility, drive traffic, and generate leads.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="leads">
-    <h2>Implementing the 100M Leads Framework</h2>
-    <ul class="lead-points">
-      <li><strong>Target Market Precision:</strong> Laser-focus on high-value segments to optimize ad spend.</li>
-      <li><strong>Compelling Lead Magnets:</strong> Free audits, reports, and workshops that convert at 30%+ rates.</li>
-      <li><strong>Automated Follow-Up:</strong> Multi-touch email sequences with personalization based on behavior.</li>
-      <li><strong>Social Proof & Case Studies:</strong> Showcase real results to build trust instantly.</li>
-      <li><strong>Value Ascension:</strong> Upsells and cross-sells designed to increase average order value.</li>
-    </ul>
+    <!-- service cards here -->
   </section>
 
   <section id="contact">
@@ -138,5 +85,16 @@
     <p>&copy; 2025 DigitalFoundations. All rights reserved.</p>
     <p>Designed by DigitalFoundations • <a href="#contact">Get in touch</a></p>
   </footer>
+
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('splash').style.display = 'none';
+        document.querySelectorAll('section').forEach((sec, i) => {
+          setTimeout(() => sec.classList.add('animate'), 400 * (i+1));
+        });
+      }, 2500);
+    });
+  </script>
 </body>
 </html>
