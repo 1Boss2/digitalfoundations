@@ -1,226 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DigitalFoundations | Crafting Digital Excellence</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --dark-bg: #0b1120;
-      --light-bg: #f4f4f4;
-      --text-light: #f9f9f9;
-      --text-dark: #222;
-      --accent: #ff6a3d;
-      --radius: 8px;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--dark-bg);
-      color: var(--text-light);
-      scroll-behavior: smooth;
-    }
-    #splash {
-      position: fixed;
-      inset: 0;
-      background: var(--dark-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      animation: splashFadeOut 3.5s forwards;
-    }
-    #splash h1 {
-      color: var(--accent);
-      font-size: 4rem;
-      animation: zoomFade 3s ease-out forwards;
-    }
-    @keyframes zoomFade {
-      0% { transform: scale(1); opacity: 1; }
-      50% { opacity: 1; }
-      100% { transform: scale(2); opacity: 0; }
-    }
-    @keyframes splashFadeOut {
-      0% { opacity: 1; }
-      100% { opacity: 0; visibility: hidden; }
-    }
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background: rgba(11, 17, 32, 0.95);
-      z-index: 100;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--accent);
-    }
-    .logo svg {
-      width: 32px;
-      height: 32px;
-      fill: var(--accent);
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-    nav ul li a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    nav ul li a:hover {
-      color: var(--accent);
-    }
-    header {
-      height: 100vh;
-      background: linear-gradient(135deg, rgba(255, 106, 61, 0.85), rgba(11, 17, 32, 0.85)), url('https://images.unsplash.com/photo-1600585154340-be6161cbbed7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
-    .hero {
-      max-width: 800px;
-      padding: 0 20px;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-    .btn-primary {
-      padding: 12px 32px;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      border-radius: var(--radius);
-      font-weight: 600;
-    }
-    .btn-primary:hover {
-      background: #e75b2e;
-    }
-    section {
-      padding: 100px 40px;
-      background: var(--dark-bg);
-    }
-    section.light {
-      background: var(--dark-bg);
-      color: var(--text-light);
-    }
-    h2 {
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    p, li {
-      font-size: 1rem;
-      line-height: 1.6;
-      max-width: 900px;
-      margin: 0 auto 20px;
-    }
-    ul {
-      max-width: 900px;
-      margin: 0 auto;
-      padding-left: 20px;
-    }
-    .cta-banner {
-      background: var(--accent);
-      color: white;
-      padding: 60px 40px;
-      text-align: center;
-    }
-    .cta-banner h2 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-    }
-    .cta-banner a {
-      display: inline-block;
-      padding: 12px 32px;
-      background: white;
-      color: var(--accent);
-      font-weight: bold;
-      border-radius: var(--radius);
-      text-decoration: none;
-    }
-    .cta-banner a:hover {
-      background: #f1f1f1;
-    }
-    footer {
-      background: var(--dark-bg);
-      color: var(--text-light);
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
-    footer a {
-      color: var(--accent);
-    }
-  </style>
-</head>
-<body>
-  <div id="splash"><h1>DigitalFoundations</h1></div>
-  <nav>
-    <div class="logo">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="30" height="80"/><rect x="50" y="10" width="40" height="20"/><rect x="50" y="40" width="40" height="20"/><rect x="50" y="70" width="40" height="20"/></svg>
-      <span>DigitalFoundations</span>
+<section id="web-services" class="service-section">
+    <div class="container">
+        <h2>Web Development & Design</h2>
+        <p><strong>Build a Stronger Online Presence</strong></p>
+        <p>Elevate your online visibility with our expert web design and development services. We craft stunning, responsive websites that are both visually appealing and highly functional, ensuring your business stands out and makes a lasting impression.</p>
+
+        <a href="#consultation" class="btn">Book a Consultation</a>
+        <a href="#seo-audit" class="btn">Get Your Free SEO Audit</a>
+
+        <h3>Your Website Needs to Sell Your Business</h3>
+        <p>If you're not proud of how your business appears online, how can you expect your customers to trust you? At DigitalFoundations, we specialize in designing, developing, and refining websites that allow your business to thrive in the competitive online world. Whether you need a complete redesign or a fresh, custom-built website, we've got you covered.</p>
+
+        <h3>Explore Our Free Services Today!</h3>
+        <ul>
+            <li><a href="#free-seo" class="btn">Free SEO Audit – Click here for a detailed SEO analysis</a></li>
+            <li><a href="#free-consultation" class="btn">Free Consultation – Schedule your free consultation with us now</a></li>
+        </ul>
+
+        <div class="client-reviews">
+            <h3>What Clients Are Saying About Us</h3>
+            <ul>
+                <li>"Excellent service. I've been a customer for years and highly recommend their work." — Sawsan Gamgoum</li>
+                <li>"A fantastic experience! The SEO services transformed my business online." — Berty Trunk</li>
+                <li>"Great support, informative, and friendly team. Highly recommend!" — Debbie Firmstone</li>
+            </ul>
+        </div>
+
+        <h3>Why Choose Our Website Services?</h3>
+        <p><strong>Make a Strong First Impression</strong></p>
+        <p>First impressions count. Your website is often the first point of contact potential customers have with your brand. In a digital world, you have less than 2.5 seconds to capture their attention. If your website doesn’t impress, you'll lose them.</p>
+        <p>We specialize in designing websites using top CMS platforms to create dynamic, user-friendly, and visually appealing sites. Whether you need a simple brochure site or a robust eCommerce platform, we tailor our designs to meet your specific needs.</p>
+
+        <h3>Boost Your Visibility</h3>
+        <p>Want to increase your online reach? Call us for free source material and expert guidance today!</p>
+
+        <h3>Reliable Hosting & Support</h3>
+        <p>Our hosting services ensure fast-loading websites that provide a smooth user experience. We also offer ongoing support to guarantee your website runs optimally, including regular updates, backups, and security monitoring.</p>
+
+        <h3>Websites Optimized for SEO</h3>
+        <p>A beautiful website is useless if your audience can't find it. While we offer SEO as a standalone service, every website we create is optimized for search engines right from the start. We design with Google’s standards in mind, ensuring that your website not only looks great but also performs well in search results.</p>
+
+        <div class="faq">
+            <h3>FAQs</h3>
+            <h4>How Often Should I Update My Website?</h4>
+            <p>It’s essential to keep your website fresh and relevant. We recommend updating your site every two to three years, but ongoing maintenance and SEO optimization are crucial for staying competitive and maintaining security.</p>
+
+            <h4>What’s the Difference Between Web Development and Web Design?</h4>
+            <p>Web design focuses on the look and feel of your website, while web development involves the technical aspects like functionality and coding. Together, they create a seamless, high-performing website.</p>
+        </div>
+
+        <p><strong>Ready to Grow Your Business?</strong></p>
+        <a href="#contact-us" class="btn">Find Out How</a>
     </div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#events">Events</a></li>
-      <li><a href="#case-studies">Case Studies</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-  <header>
-    <div class="hero">
-      <h1>DigitalFoundations</h1>
-      <p>Transforming ideas into digital reality. We craft websites, automate workflows, and fuel growth with marketing precision.</p>
-      <a href="#about" class="btn-primary">Explore Our Work</a>
-    </div>
-  </header>
-  <section id="about" class="light">
-    <h2>About DigitalFoundations</h2>
-    <p>Welcome to DigitalFoundations — a new breed of digital agency. We blend sharp strategy, custom development, and powerful marketing into one seamless engine for digital growth. No generic templates, no off-the-shelf solutions — just bespoke execution designed to elevate your business online.</p>
-    <p>We don't just build websites; we build infrastructure for your brand to thrive. Our team specializes in integrated web development, workflow automation, and performance marketing. We've helped over 100 clients—from local businesses to global ventures—optimize, scale, and win in the digital space.</p>
-    <p>Every client receives a tailored digital blueprint. From the first meeting, we identify your market, audit your digital assets, and map a path from where you are to where you want to be. We work fast, we work smart, and we stay committed to performance.</p>
-    <ul>
-      <li><strong>Tailored Strategy:</strong> We dive deep into your brand and industry to craft a plan that drives traffic and conversion.</li>
-      <li><strong>Custom Development:</strong> Fast, secure, responsive websites designed to convert.</li>
-      <li><strong>Automation-Driven Growth:</strong> Save time and money through intelligent automation that simplifies your funnel.</li>
-      <li><strong>Transparent Results:</strong> Monthly reporting and clear KPIs tied to your business objectives.</li>
-    </ul>
-    <p>DigitalFoundations thrives on challenges — from recovering botched launches to building new brands from scratch. We don’t just keep up with trends — we define them.</p>
-    <p class="phone"><strong>Speak to us directly: 01780 693 003</strong></p>
-  </section>
-  <section class="cta-banner">
-    <h2>Ready to transform your digital presence?</h2>
-    <a href="#contact">Let's Talk</a>
-  </section>
-  <footer>
-    &copy; 2025 DigitalFoundations. All rights reserved. | <a href="#">Privacy Policy</a>
-  </footer>
-</body>
-</html>
+</section>
