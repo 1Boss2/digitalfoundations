@@ -17,11 +17,11 @@
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family:'Poppins',sans-serif; color:var(--text-dark); background:var(--light-bg); overflow-x:hidden; scroll-behavior:smooth; }
-    /* Load Animation */
+    /* Splash */
     #splash { position:fixed; inset:0; background:var(--dark-bg); display:flex; align-items:center; justify-content:center; z-index:9999; }
     #splash h1 { color:var(--accent); font-size:4rem; opacity:0; animation:zoomFade 2s ease-out forwards; }
-    @keyframes zoomFade { 0%{transform:scale(0.5);opacity:0;}50%{opacity:1;}100%{transform:scale(2);opacity:0;} }
-    /* Navigation */
+    @keyframes zoomFade {0%{transform:scale(0.5);opacity:0;}50%{opacity:1;}100%{transform:scale(2);opacity:0;}}
+    /* Nav */
     nav { position:fixed; top:0; width:100%; display:flex; justify-content:space-between; align-items:center; padding:20px 40px; background:rgba(11,17,32,0.85); z-index:100; opacity:0; animation:fadeIn 1s ease-out 2s forwards; }
     .logo { display:flex; align-items:center; gap:8px; color:var(--text-light); font-size:1.5rem; font-weight:600; }
     .logo svg { width:32px; height:32px; fill:var(--accent); }
@@ -31,8 +31,8 @@
     @keyframes fadeIn { to{opacity:1;} }
     /* Hero */
     header { position:relative; height:100vh; display:flex; align-items:center; justify-content:center; background: linear-gradient(135deg, rgba(255,106,61,0.85), rgba(255,106,61,0.85)), url('https://images.unsplash.com/photo-1600585154340-be6161cbbed7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; visibility:hidden; animation:showContent .1s linear 2.5s forwards; }
-    @keyframes showContent{ to{visibility:visible;} }
-    header::before{ content:''; position:absolute; inset:0; background:rgba(11,17,32,0.5);}    
+    @keyframes showContent{to{visibility:visible;}}
+    header::before{content:'';position:absolute;inset:0;background:rgba(11,17,32,0.5);}    
     .hero { position:relative; text-align:center; color:var(--text-light); max-width:800px; padding:0 20px; }
     .hero h1, .hero p, .btn-primary { opacity:0; transform:translateY(20px); animation:fadeSlideIn 1s ease-out forwards; }
     .hero h1 { font-size:4rem; margin-bottom:20px; animation-delay:2.7s; }
@@ -40,7 +40,7 @@
     .btn-primary { padding:15px 40px; background:var(--light-bg); color:var(--accent); border-radius:var(--radius); text-decoration:none; font-weight:600; animation-delay:3.3s; transition:background .3s; }
     .btn-primary:hover { background:#f0f0f0; }
     @keyframes fadeSlideIn{ to{opacity:1;transform:translateY(0);} }
-    /* Sections reveal */
+    /* Sections */
     section { padding:80px 40px; opacity:0; transform:translateY(20px); }
     section.animate{ animation:fadeSlideIn 1s ease-out forwards; }
     h2 { font-size:2.5rem; margin-bottom:20px; text-align:center; color:var(--dark-bg); }
@@ -48,7 +48,6 @@
     ul { list-style:disc; padding-left:20px; }
     /* About */
     #about{ background:var(--light-bg); }
-    #about ul{ margin-top:20px; }
     #about .phone{ text-align:center; font-size:1.25rem; margin-top:10px; color:var(--accent); }
     /* Services */
     #services{ background:var(--dark-bg); color:var(--text-light); }
@@ -58,19 +57,24 @@
     .card-content{ padding:16px; }
     .card-content h3{ font-size:1.5rem; margin-bottom:8px; }
     /* Team */
-    #team{ background:var(--light-bg); text-align:center; }
-    .team-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:30px; margin-top:20px; }
+    #team{ background:var(--light-bg); }
+    .team-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:30px; margin-top:20px; text-align:center; }
     .member{ padding:20px; border-radius:var(--radius); box-shadow:0 4px 8px rgba(0,0,0,0.1); background:#fff; }
     .member img{ width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:12px; }
     .member h4{ font-size:1.25rem; margin-bottom:4px; color:var(--dark-bg); }
     .member p{ font-size:0.9rem; color:#555; }
+    /* Items grid for blog/events/cases */
+    .items{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin-top:20px; }
+    .item{ border-radius:var(--radius); overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1); background:#fff; }
+    .item img{ width:100%; height:180px; object-fit:cover; }
+    .item-content{ padding:16px; }
+    .item-content h3{ font-size:1.25rem; margin-bottom:8px; }
     /* Testimonials */
     #testimonials{ background:var(--light-bg); }
     .testimonial{ max-width:700px; margin:20px auto; font-style:italic; }
     .testimonial cite{ display:block; margin-top:10px; text-align:right; font-weight:600; }
-    /* Contact */
+    /* Contact & Footer */
     #contact{ background:var(--light-bg); text-align:center; }
-    /* Footer */
     footer{ background:var(--dark-bg); color:var(--text-light); text-align:center; padding:20px; font-size:0.9rem; }
     footer a{ color:var(--accent); text-decoration:none; }
     @media(max-width:768px){ .hero h1{font-size:2.75rem;} }
@@ -110,56 +114,5 @@
   <section id="services">
     <h2>Our Services</h2>
     <div class="cards">
-      <div class="card"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Web Dev"><div class="card-content"><h3>Website Development & Hosting</h3><p>Custom, responsive sites on secure hosting with 24/7 monitoring and backups.</p></div></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Automation"><div class="card-content"><h3>Workflow Automation</h3><p>Streamline operations with email sequences, booking systems, CRM integrations, and more.</p></div></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" alt="Marketing"><div class="card-content"><h3>Digital Marketing & SEO</h3><p>Data-driven SEO, PPC, and social campaigns that attract and convert your ideal customers.</p></div></div>
-    </div>
-  </section>
-
-  <section id="blog">
-    <h2>Blog</h2>
-    <div class="items">
-      <div class="item"><img src="https://source.unsplash.com/collection/190727/400x300" alt="Blog 1"><div class="item-content"><h3>5 Strategies to Boost Conversions</h3><p>Learn proven tactics to increase your website’s conversion rate by up to 30%.</p></div></div>
-      <div class="item"><img src="https://source.unsplash.com/collection/190728/400x300" alt="Blog 2"><div class="item-content"><h3>Automation Tools We Swear By</h3><p>Discover the top platforms that save you hours every week.</p></div></div>
-      <div class="item"><img src="https://source.unsplash.com/collection/190729/400x300" alt="Blog 3"><div class="item-content"><h3>The Future of SEO in 2025</h3><p>Stay ahead with insights into emerging search engine trends.</p></div></div>
-    </div>
-  </section>
-
-  <section id="events">
-    <h2>Events</h2>
-    <div class="items">
-      <div class="item"><img src="https://source.unsplash.com/600x400/?conference" alt="Event 1"><div class="item-content"><h3>Digital Marketing Workshop</h3><p>Join us July 15th for hands-on training in advanced marketing tactics.</p></div></div>
-      <div class="item"><img src="https://source.unsplash.com/600x400/?webinar" alt="Event 2"><div class="item-content"><h3>Automation Deep Dive Webinar</h3><p>Learn to build effective workflows on August 3rd with our experts.</p></div></div>
-    </div>
-  </section>
-
-  <section id="cases">
-    <h2>Case Studies</h2>
-    <div class="items">
-      <div class="item"><img src="https://source.unsplash.com/600x400/?ecommerce" alt="Case 1"><div class="item-content"><h3>E-commerce Redesign</h3><p>Boosted client sales by 40% with a complete site overhaul.</p></div></div>
-      <div class="item"><img src="https://source.unsplash.com/600x400/?clinic" alt="Case 2"><div class="item-content"><h3>Clinic Automation</h3><p>Reduced no-shows by 70% through automated appointment reminders.</p></div></div>
-    </div>
-  </section>
-
-  <section id="testimonials">
-    <h2>Testimonials</h2>
-    <div class="testimonial"><p>“DigitalFoundations transformed our online presence and doubled our leads in 3 months.”</p><cite>— Sarah P., Boutique Owner</cite></div>
-    <div class="testimonial"><p>“Their end-to-end service saved us 20+ hours weekly. Highly recommend!”</p><cite>— Tom C., Fitness Studio Owner</cite></div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Ready to transform your digital foundation? Book a free consultation and get a tailored strategy.</p>
-    <a href="mailto:info@digitalfoundations.agency" class="btn-primary">Book Your Call</a>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 DigitalFoundations. All rights reserved.</p>
-    <p>Designed & Developed by DigitalFoundations • <a href="#contact">Get in touch</a></p>
-  </footer>
-
-  <script>
-    window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('splash').style.display='none';document.querySelectorAll('section').forEach((sec,i)=>{setTimeout(()=>sec.classList.add('animate'),400*(i+1));});},2500);});
-  </script>
-</body>
-</html>
+      <div class="card"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Web Dev"><div class="card-content"><h3>Website Development & Hosting</h3><p>Custom, responsive sites on secure hosting with 24/7 monitoring and backups。</p></div></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Automation"><div class="card-content"><h3>Workflow Automation</h3><p>Streamline operations with email sequences, booking systems, CRM integrations, and more。</p></
