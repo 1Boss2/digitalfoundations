@@ -217,42 +217,66 @@
   </section>
 
   <!-- New Section for Web Development & Services -->
-  <section id="services">
-    <h2>Our Web Development & Design Services</h2>
-    <p><strong>Strengthen your online presence with our expert web design and development services.</strong> We create stunning, user-friendly websites that help you stand out and leave a lasting impression on your audience.</p>
-    
-    <div class="buttons">
-      <a href="#consultation" class="btn btn-primary">Book a Consultation</a>
-      <a href="#seo-audit" class="btn btn-primary">Get Your Free SEO Audit</a>
+ <section id="services" class="light">
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .service-item {
+      flex: 1 1 30%;
+      background-color: #1a1f2b;
+      padding: 20px;
+      border-radius: var(--radius);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-section {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .cta-section h3 {
+      margin-bottom: 20px;
+    }
+  </style>
+
+  <div class="container">
+    <h2>Our Approach to Digital Excellence</h2>
+    <p>At DigitalFoundations, we specialize in transforming your digital presence through tailored strategies and innovative solutions. Our team is dedicated to delivering results that drive growth and success for your business.</p>
+
+    <div class="services-grid">
+      <div class="service-item">
+        <h3>Strategic Planning</h3>
+        <p>We develop comprehensive digital strategies that align with your business goals, ensuring a clear roadmap to success.</p>
+      </div>
+      <div class="service-item">
+        <h3>Custom Web Development</h3>
+        <p>Our developers create responsive, user-friendly websites that provide seamless experiences across all devices.</p>
+      </div>
+      <div class="service-item">
+        <h3>Performance Marketing</h3>
+        <p>We implement data-driven marketing campaigns that effectively reach your target audience and maximize ROI.</p>
+      </div>
     </div>
 
-    <h3>Your Website Needs to Sell Your Business</h3>
-    <p>If you're not proud of your website, how can you expect your customers to trust your business? At DigitalFoundations, we specialize in designing, developing, and refining websites that empower your business to compete and succeed in today’s digital marketplace.</p>
-
-    <h3>Explore Our Free Offerings Today!</h3>
-    <ul>
-      <li><a href="#free-seo" class="btn btn-outline">Free SEO Audit – Get a comprehensive SEO analysis now</a></li>
-      <li><a href="#free-consultation" class="btn btn-outline">Free Consultation – Book your free consultation today</a></li>
-    </ul>
-
-    <h3>Why Choose Our Website Services?</h3>
-    <ul>
-      <li><strong>Make a Great First Impression:</strong> Your website is often the first point of contact for potential customers, and we ensure it leaves a powerful, professional impression.</li>
-      <li><strong>Boost Your Visibility:</strong> Our websites are designed with SEO best practices in mind to help you rank higher and get noticed online.</li>
-      <li><strong>Reliable Hosting & Support:</strong> We offer fast, secure hosting and ongoing support to keep your website running smoothly.</li>
-    </ul>
-
-    <h3>Optimized for SEO</h3>
-    <p>We ensure every website we build is optimized for search engines, helping you climb the ranks and drive traffic to your business.</p>
-  </section>
-
-  <section class="cta-banner">
-    <h2>Ready to transform your digital presence?</h2>
-    <a href="#contact">Let's Talk</a>
-  </section>
-
-  <footer>
-    &copy; 2025 DigitalFoundations. All rights reserved. | <a href="#">Privacy Policy</a>
-  </footer>
-</body>
-</html>
+    <div class="cta-section">
+      <h3>Ready to Elevate Your Digital Presence?</h3>
+      <a href="#contact" class="btn-primary">Book a Consultation</a>
+    </div>
+  </div>
+</section>
