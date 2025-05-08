@@ -224,33 +224,7 @@
   right: 10px;
 }
 <script>
-  const track = document.querySelector('.carousel-track');
-  const prevBtn = document.querySelector('.carousel-btn.prev');
-  const nextBtn = document.querySelector('.carousel-btn.next');
-  let index = 0;
-
-  function updateCarousel() {
-    const width = document.querySelector('.carousel').offsetWidth;
-    track.style.transform = `translateX(-${index * width}px)`;
-  }
-
-  nextBtn.addEventListener('click', () => {
-    index = (index + 1) % track.children.length;
-    updateCarousel();
-  });
-
-  prevBtn.addEventListener('click', () => {
-    index = (index - 1 + track.children.length) % track.children.length;
-    updateCarousel();
-  });
-
-  window.addEventListener('resize', updateCarousel);
-  setInterval(() => {
-    index = (index + 1) % track.children.length;
-    updateCarousel();
-  }, 6000); // Auto-slide every 6s
-
-  updateCarousel();
+  
 </script>
 
 </head>
