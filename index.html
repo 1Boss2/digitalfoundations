@@ -159,13 +159,6 @@
       text-align: center;
       position: relative;
     }
-<section class="hero">
-  <img src="images/hero-background.jpg" alt="Digital marketing strategy illustration" />
-  <div class="hero-content">
-    <h1>Accelerate Your Online Growth</h1>
-    <p>Expert strategies in social media, SEO, and content marketing.</p>
-  </div>
-</section>
 
     .hero {
       max-width: 800px;
@@ -239,6 +232,51 @@
     footer a {
       color: var(--accent);
     }
+
+    /* Lead Magnet Section */
+    #lead-magnet {
+      background: #ff6a3d;
+      padding: 50px 20px;
+      color: #fff;
+      text-align: center;
+      border-radius: var(--radius);
+    }
+
+    #lead-magnet h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    #lead-magnet p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    #lead-magnet form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    #lead-magnet input[type="email"] {
+      width: 70%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: var(--radius);
+      border: none;
+    }
+
+    #lead-magnet button {
+      padding: 12px 20px;
+      background: #222;
+      color: #fff;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+    }
+
+    #lead-magnet button:hover {
+      background: #e75b2e;
+    }
   </style>
 </head>
 <body>
@@ -310,94 +348,18 @@
     </ul>
   </section>
 
-  <section id="contact" class="light">
-    <h2>Contact Us</h2>
-    <p style="text-align: center; max-width: 700px;">Let's build something powerful. Whether you're starting or scaling — we're here.</p>
-    <div style="max-width: 600px; margin: 40px auto;">
-      <form action="mailto:your@email.com" method="POST" enctype="text/plain">
-        <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 12px; margin-bottom: 20px; border-radius: var(--radius); border: none;" />
-        <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 12px; margin-bottom: 20px; border-radius: var(--radius); border: none;" />
-        <textarea name="message" placeholder="Your Message" rows="6" required style="width: 100%; padding: 12px; margin-bottom: 20px; border-radius: var(--radius); border: none;"></textarea>
-        <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
-      </form>
-    </div>
+  <section id="lead-magnet">
+    <h3>Get a Free Consultation!</h3>
+    <p>Sign up for a free consultation to understand how we can elevate your brand to new heights.</p>
+    <form action="mailto:your@email.com" method="POST" enctype="text/plain">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Get Started</button>
+    </form>
   </section>
-<section id="testimonials" class="light">
-  <h2>What Our Clients Say</h2>
-  <div class="carousel">
-    <div class="carousel-track">
-      <div class="testimonial active">
-        <p>"DigitalFoundations transformed our Instagram strategy — we went from 800 to 12,000 real followers in just 3 months and generated over 150 leads through DM funnels."</p>
-        <h4>— Hannah T., Wellness Brand Founder</h4>
-      </div>
-      <div class="testimonial">
-        <p>"They didn’t just build a website — they built a lead machine. In our first month post-launch, we booked 42% more consultations thanks to the automated calendar and follow-up sequences."</p>
-        <h4>— James R., Fitness Studio Owner</h4>
-      </div>
-      <div class="testimonial">
-        <p>"Our content marketing was directionless until we partnered with DigitalFoundations. They increased our LinkedIn engagement by 580% and positioned us as industry thought leaders."</p>
-        <h4>— Sarah M., B2B SaaS CMO</h4>
-      </div>
-      <div class="testimonial">
-        <p>"Every time they post for us, we trend. They nailed our voice, boosted reach, and brought in consistent traffic from social to our product pages."</p>
-        <h4>— Marcus D., eCommerce Entrepreneur</h4>
-      </div>
-    </div>
-    <button class="carousel-btn prev">&#10094;</button>
-    <button class="carousel-btn next">&#10095;</button>
-  </div>
-</section>
 
   <footer>
     <p>© 2025 DigitalFoundations. All rights reserved. | <a href="#contact">Contact Us</a></p>
   </footer>
-<script>
-  const track = document.querySelector('.carousel-track');
-  const slides = document.querySelectorAll('.testimonial');
-  const prevBtn = document.querySelector('.carousel-btn.prev');
-  const nextBtn = document.querySelector('.carousel-btn.next');
-  let currentIndex = 0;
-  let interval;
-
-  function updateCarousel() {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === currentIndex);
-    });
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
-
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateCarousel();
-  }
-
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateCarousel();
-  }
-
-  nextBtn.addEventListener('click', () => {
-    nextSlide();
-    resetInterval();
-  });
-
-  prevBtn.addEventListener('click', () => {
-    prevSlide();
-    resetInterval();
-  });
-
-  function startInterval() {
-    interval = setInterval(nextSlide, 6000); // 6 seconds
-  }
-
-  function resetInterval() {
-    clearInterval(interval);
-    startInterval();
-  }
-
-  updateCarousel();
-  startInterval();
-</script>
 
 </body>
 </html>
