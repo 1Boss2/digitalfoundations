@@ -1,6 +1,3 @@
-# Load the fixed and cleaned version of the HTML from a text block
-
-html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,17 +14,20 @@ html_content = """
       --accent: #ff6a3d;
       --radius: 8px;
     }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Poppins', sans-serif;
       background: var(--dark-bg);
       color: var(--text-light);
       scroll-behavior: smooth;
     }
+
     #splash {
       position: fixed;
       inset: 0;
@@ -38,20 +38,24 @@ html_content = """
       z-index: 9999;
       animation: splashFadeOut 3.5s forwards;
     }
+
     #splash h1 {
       color: var(--accent);
       font-size: 4rem;
       animation: zoomFade 3s ease-out forwards;
     }
+
     @keyframes zoomFade {
       0% { transform: scale(1); opacity: 1; }
       50% { opacity: 1; }
       100% { transform: scale(2); opacity: 0; }
     }
+
     @keyframes splashFadeOut {
       0% { opacity: 1; }
       100% { opacity: 0; visibility: hidden; }
     }
+
     nav {
       position: fixed;
       top: 0;
@@ -63,6 +67,7 @@ html_content = """
       background: rgba(11, 17, 32, 0.95);
       z-index: 100;
     }
+
     .logo {
       display: flex;
       align-items: center;
@@ -71,47 +76,56 @@ html_content = """
       font-weight: 600;
       color: var(--accent);
     }
+
     .logo svg {
       width: 32px;
       height: 32px;
       fill: var(--accent);
     }
+
     nav ul {
       list-style: none;
       display: flex;
       gap: 20px;
     }
+
     nav ul li a {
       color: var(--text-light);
       text-decoration: none;
       font-weight: 500;
     }
+
     nav ul li a:hover {
       color: var(--accent);
     }
+
     header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
       height: 100vh;
       background: linear-gradient(135deg, rgba(255, 106, 61, 0.85), rgba(11, 17, 32, 0.85)), url('https://images.unsplash.com/photo-1600585154340-be6161cbbed7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+      position: relative;
     }
+
     .hero {
       max-width: 800px;
       padding: 0 20px;
     }
+
     .hero h1 {
       font-size: 3rem;
       margin-bottom: 20px;
+      font-weight: 600;
     }
+
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 30px;
+      font-weight: 400;
     }
+
     .btn-primary {
       padding: 12px 32px;
       background: var(--accent);
@@ -120,55 +134,42 @@ html_content = """
       border-radius: var(--radius);
       font-weight: 600;
     }
+
     .btn-primary:hover {
       background: #e75b2e;
     }
+
     section {
       padding: 100px 40px;
       background: var(--dark-bg);
     }
+
     section.light {
       background: var(--dark-bg);
       color: var(--text-light);
     }
+
     h2 {
       font-size: 2.5rem;
       text-align: center;
       margin-bottom: 40px;
+      font-weight: 600;
     }
+
     p, li {
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 1.1rem;
+      line-height: 1.8;
       max-width: 900px;
       margin: 0 auto 20px;
+      font-weight: 400;
     }
+
     ul {
       max-width: 900px;
       margin: 0 auto;
       padding-left: 20px;
     }
-    .cta-banner {
-      background: var(--accent);
-      color: white;
-      padding: 60px 40px;
-      text-align: center;
-    }
-    .cta-banner h2 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-    }
-    .cta-banner a {
-      display: inline-block;
-      padding: 12px 32px;
-      background: white;
-      color: var(--accent);
-      font-weight: bold;
-      border-radius: var(--radius);
-      text-decoration: none;
-    }
-    .cta-banner a:hover {
-      background: #f1f1f1;
-    }
+
     footer {
       background: var(--dark-bg);
       color: var(--text-light);
@@ -176,66 +177,97 @@ html_content = """
       padding: 20px;
       font-size: 0.9rem;
     }
+
     footer a {
       color: var(--accent);
     }
-    .carousel {
-      position: relative;
-      max-width: 900px;
-      margin: 40px auto;
-      overflow: hidden;
-    }
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-    .testimonial {
-      min-width: 100%;
-      padding: 30px;
-      background: #1a2238;
-      border-radius: var(--radius);
-      margin: 0 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    }
-    .testimonial p {
-      font-style: italic;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    .testimonial h4 {
-      margin-top: 20px;
-      font-size: 1rem;
-      color: var(--accent);
-    }
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: var(--accent);
-      color: white;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      border-radius: 50%;
-    }
-    .carousel-btn:hover {
-      background: #e75b2e;
-    }
-    .carousel-btn.prev { left: 10px; }
-    .carousel-btn.next { right: 10px; }
   </style>
 </head>
 <body>
-<!-- Splash and navigation -->
-<!-- Sections moved correctly to the body go here -->
-<!-- For brevity, we'll provide a downloadable version next -->
+
+  <div id="splash"><h1>DigitalFoundations</h1></div>
+
+  <nav>
+    <div class="logo">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="30" height="80"/>
+        <rect x="50" y="10" width="40" height="20"/>
+        <rect x="50" y="40" width="40" height="20"/>
+        <rect x="50" y="70" width="40" height="20"/>
+      </svg>
+      <span>DigitalFoundations</span>
+    </div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#content-marketing">Content Marketing</a></li>
+      <li><a href="#web-design-development">Web Design</a></li>
+      <li><a href="#social-media-services">Social Media</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <div class="hero">
+      <h1>DigitalFoundations</h1>
+      <p>Transforming ideas into digital reality. We craft websites, automate workflows, and fuel growth with marketing precision.</p>
+      <a href="#about" class="btn-primary">Explore Our Work</a>
+    </div>
+  </header>
+
+  <section id="about" class="light">
+    <h2>About DigitalFoundations</h2>
+    <p>
+      At DigitalFoundations, we don't just build websites — we engineer online ecosystems that drive revenue, automate time-wasting tasks, and give your brand a powerful voice across platforms.
+    </p>
+  </section>
+
+  <section id="content-marketing" class="light">
+    <h2>Content Marketing</h2>
+    <p>We craft and distribute impactful content that attracts, engages, and converts your audience.</p>
+    <ul>
+      <li>High-converting blog posts & SEO articles</li>
+      <li>LinkedIn ghostwriting & executive branding</li>
+      <li>Email newsletters and automation</li>
+      <li>Video scripts and promotional shorts</li>
+    </ul>
+  </section>
+
+  <section id="web-design-development" class="light">
+    <h2>Web Design & Development</h2>
+    <p>Your website should be your best salesperson. We build fast, responsive, and automated websites that impress and convert.</p>
+    <ul>
+      <li>Custom HTML/CSS/JS, Webflow, or WordPress builds</li>
+      <li>CRM and calendar integrations</li>
+      <li>SEO, analytics, automation included</li>
+    </ul>
+  </section>
+
+  <section id="social-media-services" class="light">
+    <h2>Social Media Services</h2>
+    <p>We grow your brand across the right platforms with short-form video, content calendars, and automation.</p>
+    <ul>
+      <li>Strategy and scheduling</li>
+      <li>Instagram, TikTok, LinkedIn & more</li>
+      <li>Shorts, reels, carousels & growth tactics</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="light">
+    <h2>Contact Us</h2>
+    <p style="text-align: center; max-width: 700px;">Let's build something powerful. Whether you're starting or scaling — we're here.</p>
+    <div style="max-width: 600px; margin: 40px auto;">
+      <form action="mailto:your@email.com" method="POST" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 12px; margin-bottom: 20px; border-radius: var(--radius); border: none;" />
+        <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 12px; margin-bottom: 20px; border-radius: var(--radius); border: none;" />
+        <textarea name="message" placeholder="Your Message" rows="6" required style="width: 100%; padding: 12px; margin-bottom: 20px; border-radius: var(--radius); border: none;"></textarea>
+        <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 DigitalFoundations. All rights reserved. | <a href="#contact">Contact Us</a></p>
+  </footer>
+
 </body>
 </html>
-"""
-
-# Save the cleaned HTML to a downloadable file
-file_path = "/mnt/data/digitalfoundations_cleaned.html"
-with open(file_path, "w") as file:
-    file.write(html_content)
-
-file_path
