@@ -148,6 +148,14 @@
       color: var(--accent);
     }
     header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #0a0a0a; /* or match your theme background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional: subtle shadow */
+}
+
+    header {
       height: 100vh;
       background: linear-gradient(135deg, rgba(255, 106, 61, 0.85), rgba(11, 17, 32, 0.85)), url('https://images.unsplash.com/photo-1600585154340-be6161cbbed7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       display: flex;
