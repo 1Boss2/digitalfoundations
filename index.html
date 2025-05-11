@@ -67,6 +67,57 @@
       background: rgba(11, 17, 32, 0.95);
       z-index: 100;
     }
+.carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+.testimonial {
+  min-width: 100%;
+  padding: 30px;
+  background: #1a2238;
+  border-radius: 8px;
+  margin: 0 10px;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.testimonial.active {
+  opacity: 1;
+  transform: scale(1);
+}
+.testimonial p {
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.testimonial h4 {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: var(--accent);
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 1;
+}
+.carousel-btn:hover {
+  background: #e75b2e;
+}
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
 
     .logo {
       display: flex;
@@ -264,10 +315,82 @@
       </form>
     </div>
   </section>
+<section id="testimonials" class="light">
+  <h2>What Our Clients Say</h2>
+  <div class="carousel">
+    <div class="carousel-track">
+      <div class="testimonial active">
+        <p>"DigitalFoundations transformed our Instagram strategy — we went from 800 to 12,000 real followers in just 3 months and generated over 150 leads through DM funnels."</p>
+        <h4>— Hannah T., Wellness Brand Founder</h4>
+      </div>
+      <div class="testimonial">
+        <p>"They didn’t just build a website — they built a lead machine. In our first month post-launch, we booked 42% more consultations thanks to the automated calendar and follow-up sequences."</p>
+        <h4>— James R., Fitness Studio Owner</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Our content marketing was directionless until we partnered with DigitalFoundations. They increased our LinkedIn engagement by 580% and positioned us as industry thought leaders."</p>
+        <h4>— Sarah M., B2B SaaS CMO</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Every time they post for us, we trend. They nailed our voice, boosted reach, and brought in consistent traffic from social to our product pages."</p>
+        <h4>— Marcus D., eCommerce Entrepreneur</h4>
+      </div>
+    </div>
+    <button class="carousel-btn prev">&#10094;</button>
+    <button class="carousel-btn next">&#10095;</button>
+  </div>
+</section>
 
   <footer>
     <p>© 2025 DigitalFoundations. All rights reserved. | <a href="#contact">Contact Us</a></p>
   </footer>
+<script>
+  const track = document.querySelector('.carousel-track');
+  const slides = document.querySelectorAll('.testimonial');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  let currentIndex = 0;
+  let interval;
+
+  function updateCarousel() {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === currentIndex);
+    });
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateCarousel();
+  }
+
+  nextBtn.addEventListener('click', () => {
+    nextSlide();
+    resetInterval();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    prevSlide();
+    resetInterval();
+  });
+
+  function startInterval() {
+    interval = setInterval(nextSlide, 6000); // 6 seconds
+  }
+
+  function resetInterval() {
+    clearInterval(interval);
+    startInterval();
+  }
+
+  updateCarousel();
+  startInterval();
+</script>
 
 </body>
 </html>
