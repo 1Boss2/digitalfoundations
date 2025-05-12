@@ -358,16 +358,12 @@
   <h2>Social Media Services</h2>
   <div style="display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap;">
     
-    <!-- Instagram Embed -->
-    <div style="max-width: 400px; width: 100%;">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DEzL__HOZHO/" data-instgrm-version="14" style="width:100%; margin: 0 auto;">
-        <a href="https://www.instagram.com/reel/DEzL__HOZHO/" target="_blank" rel="noopener noreferrer">
-          View this post on Instagram
-        </a>
-      </blockquote>
-    </div>
+    <!-- Embedded autoplaying video -->
+    <video autoplay muted loop playsinline style="max-width: 400px; width: 100%; height: auto; border-radius: var(--radius);">
+      <source src="/social-reel.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
-    <!-- Text Content -->
     <div>
       <p>We grow your brand across the right platforms with short-form video, content calendars, and automation.</p>
       <ul>
@@ -378,6 +374,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- Load Instagram Embed Script Once -->
 <script async src="//www.instagram.com/embed.js"></script>
