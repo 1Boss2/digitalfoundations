@@ -14,23 +14,31 @@
 
   <!-- ✅ Paste here -->
   <style>
-    .client-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
+  .client-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 40px 20px;
+  justify-items: center;
+}
 
-    .client-name {
-      background-color: #f0f0f0;
-      border-radius: 8px;
-      padding: 40px 10px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 1rem;
-      color: #333;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+.client-name {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 30px 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #222;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 160px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
   </style>
 
 </head>
@@ -433,8 +441,8 @@
   <div style="width: 100%; max-width: 800px; aspect-ratio: 16 / 9; margin-bottom: 40px;">
     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/D6446Z5z7p8?autoplay=1&mute=1&loop=1&playlist=D6446Z5z7p8&controls=0&modestbranding=1&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius: var(--radius);"></iframe>
   </div>
-<section id="clients" class="light">
-  <h2>Meet Our Clients</h2>
+<section id="clients">
+  <h2 style="text-align: center;">Meet Our Clients</h2>
   <div class="client-grid">
     <div class="client-name">Damia</div>
     <div class="client-name">Kirra Point</div>
@@ -462,6 +470,7 @@
     <div class="client-name">Afterwinter</div>
   </div>
 </section>
+
 
   <!-- Lead Magnet Content -->
   <div style="background: rgba(0, 0, 0, 0.7); padding: 60px 30px; border-radius: var(--radius); max-width: 600px; width: 90%; text-align: center;">
