@@ -325,24 +325,45 @@
 
   <div id="splash"><h1>DigitalFoundations</h1></div>
 
-  <nav>
-    <div class="logo">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="10" width="30" height="80"/>
-        <rect x="50" y="10" width="40" height="20"/>
-        <rect x="50" y="40" width="40" height="20"/>
-        <rect x="50" y="70" width="40" height="20"/>
-      </svg>
-      <span>DigitalFoundations</span>
-    </div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#content-marketing">Content Marketing</a></li>
-      <li><a href="#web-design-development">Web Design</a></li>
-      <li><a href="#social-media-services">Social Media</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <nav style="position: fixed; top: 0; width: 100%; background-color: #000; z-index: 9999; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center;">
+  <a href="#hero" style="color: var(--brand-orange); font-weight: bold; font-size: 1.25rem; text-decoration: none;">DigitalFoundations</a>
+
+  <div id="nav-links" style="display: flex; gap: 24px;">
+    <a href="#web-design-services" style="color: white; text-decoration: none;">Web Design</a>
+    <a href="#social-media-services" style="color: white; text-decoration: none;">Social Media</a>
+    <a href="#content-marketing-services" style="color: white; text-decoration: none;">Content</a>
+    <a href="#about" style="color: white; text-decoration: none;">About</a>
+    <a href="#contact" style="color: white; text-decoration: none;">Contact</a>
+  </div>
+
+  <!-- Hamburger for mobile -->
+  <button id="nav-toggle" style="background: none; border: none; color: white; font-size: 1.5rem; display: none;">☰</button>
+</nav>
+
+<script>
+  // Toggle nav on mobile
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+
+  toggle.addEventListener('click', () => {
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  // Responsive behaviour
+  function handleResize() {
+    if (window.innerWidth < 768) {
+      links.style.display = 'none';
+      toggle.style.display = 'block';
+    } else {
+      links.style.display = 'flex';
+      toggle.style.display = 'none';
+    }
+  }
+
+  window.addEventListener('resize', handleResize);
+  window.addEventListener('load', handleResize);
+</script>
+
 
   <header>
     <div class="hero">
