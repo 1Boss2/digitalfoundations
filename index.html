@@ -593,12 +593,38 @@
   <section id="lead-magnet">
     <h3>Get a Free Consultation!</h3>
     <p>Sign up for a free consultation to understand how we can elevate your brand to new heights.</p>
-   <form action="https://formspree.io/f/mpwdkaba" method="POST" style="display: flex; flex-direction: column; gap: 16px; max-width: 500px; margin: 0 auto;">
-  <input type="text" name="name" placeholder="Your Name" required style="padding: 12px; border-radius: 8px; border: none;">
-  <input type="email" name="email" placeholder="Your Email" required style="padding: 12px; border-radius: 8px; border: none;">
-  <textarea name="message" placeholder="Your Message" rows="5" required style="padding: 12px; border-radius: 8px; border: none;"></textarea>
-  <button type="submit" style="background-color: var(--brand-orange); color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Send Message</button>
+   <form action="https://formspree.io/f/mpwdkaba" method="POST" style="max-width: 600px; margin: 0 auto; display: grid; gap: 20px; padding: 40px; background: #111; border-radius: 16px; box-shadow: 0 0 30px rgba(0,0,0,0.2); color: white;">
+
+  <h3 style="font-size: 1.8rem; font-weight: 600; text-align: center; margin-bottom: 10px;">Let’s Get Started</h3>
+  <p style="text-align: center; font-size: 1rem; color: #ccc; margin-top: -10px;">We just need a few details to begin</p>
+
+  <!-- Name -->
+  <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+    <input type="text" name="firstName" placeholder="First Name" required style="flex: 1; padding: 12px; border-radius: 8px; border: none;">
+    <input type="text" name="lastName" placeholder="Last Name" required style="flex: 1; padding: 12px; border-radius: 8px; border: none;">
+  </div>
+
+  <!-- Business Name -->
+  <input type="text" name="businessName" placeholder="Business Name" required style="padding: 12px; border-radius: 8px; border: none;">
+
+  <!-- Email -->
+  <input type="email" name="email" placeholder="Email Address" required style="padding: 12px; border-radius: 8px; border: none;">
+
+  <!-- Phone -->
+  <input type="tel" name="phone" placeholder="Phone Number" required style="padding: 12px; border-radius: 8px; border: none;">
+
+  <!-- Country -->
+  <input type="text" name="country" placeholder="Country" style="padding: 12px; border-radius: 8px; border: none;">
+
+  <!-- Message -->
+  <textarea name="message" rows="4" placeholder="Anything you'd like to add?" style="padding: 12px; border-radius: 8px; border: none;"></textarea>
+
+  <!-- Submit Button -->
+  <button type="submit" style="background-color: var(--brand-orange); color: white; padding: 14px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer;">
+    Submit
+  </button>
 </form>
+
 
   </section>
 
